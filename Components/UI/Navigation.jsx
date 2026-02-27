@@ -375,12 +375,16 @@ useEffect(() => {
           <div className="px-4 py-6">
             <ul className="mt-6 space-y-1 ">
               <li>
-                <a
+                <Link
                   href="/"
                   className="block rounded-lg px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-800/30 hover:text-cyan-400"
+                  onClick={() => {
+                    document.body.classList.remove("overflow-hidden");
+                    setShowNavbar(false);
+                  }}
                 >
                   Home
-                </a>
+                </Link>
               </li>
 
               <li>
@@ -406,68 +410,96 @@ useEffect(() => {
 
                   <ul className="mt-2 space-y-1 px-4">
                     <li>
-                      <a
+                      <Link
                         href="/projects/ai-ml"
                         className="block rounded-lg px-4 py-1 text-sm font-medium text-gray-400  hover:bg-gray-800/30 hover:text-cyan-400"
+                        onClick={() => {
+                          document.body.classList.remove("overflow-hidden");
+                          setShowNavbar(false);
+                        }}
                       >
                         AI/ML
-                      </a>
+                      </Link>
                     </li>
 
                     <li>
-                      <a
+                      <Link
                         href="/projects/ar-vr"
                         className="block rounded-lg px-4 py-1 text-sm font-medium text-gray-400 hover:bg-gray-800/30 hover:text-cyan-400"
+                        onClick={() => {
+                          document.body.classList.remove("overflow-hidden");
+                          setShowNavbar(false);
+                        }}
                       >
                         AR/VR
-                      </a>
+                      </Link>
                     </li>
 
                       <li>
                       
-                      <a
+                      <Link
                         href="/projects/blockchain"
                         className="block rounded-lg px-4 py-1 text-sm font-medium text-gray-400  hover:bg-gray-800/30 hover:text-cyan-400"
+                        onClick={() => {
+                          document.body.classList.remove("overflow-hidden");
+                          setShowNavbar(false);
+                        }}
                       >
                         BLOCKCHAIN
-                      </a>
+                      </Link>
                     </li>
 
                     <li>
 
-                      <a
+                      <Link
                         href="/projects/iot"
                         className="block rounded-lg px-4 py-1 text-sm font-medium text-gray-400  hover:bg-gray-800/30 hover:text-cyan-400"
+                        onClick={() => {
+                          document.body.classList.remove("overflow-hidden");
+                          setShowNavbar(false);
+                        }}
                       >
                         IOT
-                      </a>
+                      </Link>
                     </li>
 
                     <li>
-                      <a
+                      <Link
                         href="/projects/dsp"
                         className="block rounded-lg px-4 py-1 text-sm font-medium text-gray-400  hover:bg-gray-800/30 hover:text-cyan-400"
+                        onClick={() => {
+                          document.body.classList.remove("overflow-hidden");
+                          setShowNavbar(false);
+                        }}
                       >
                         DSP
-                      </a>
+                      </Link>
                     </li>
 
                     <li>
-                      <a
+                      <Link
                         href="/projects/embedded"
                         className="block rounded-lg px-4 py-1 text-sm font-medium text-gray-400  hover:bg-gray-800/30 hover:text-cyan-400"
+                        onClick={() => {
+                          document.body.classList.remove("overflow-hidden");
+                          setShowNavbar(false);
+                        }}
                       >
                         EMBEDDED SYSTEMS
-                      </a>
+                      </Link>
                     </li>
 
                     <li>
-                      <a
+                      <Link
                         href="/projects/quantum"
                         className="block rounded-lg px-4 py-1 text-sm font-medium text-gray-400  hover:bg-gray-800/30 hover:text-cyan-400"
+                        onClick={() => {
+                          document.body.classList.remove("overflow-hidden");
+                          setShowNavbar(false);
+                        }}
                       >
                         QUANTAM COMPUTING
-                      </a>
+                      </Link>
                     </li>
                   </ul>
                 </details>
@@ -496,21 +528,29 @@ useEffect(() => {
 
                   <ul className="mt-2 space-y-1 px-4">
                     <li>
-                      <a
+                      <Link
                         href="/team/current-team"
                         className="block rounded-lg px-4 py-1 text-sm font-medium text-gray-400  hover:bg-gray-800/30 hover:text-cyan-400"
+                        onClick={() => {
+                          document.body.classList.remove("overflow-hidden");
+                          setShowNavbar(false);
+                        }}
                       >
                         Current
-                      </a>
+                      </Link>
                     </li>
 
                     <li>
-                      <a
+                      <Link
                         href="/team/alumni"
                         className="block rounded-lg px-4 py-1 text-sm font-medium text-gray-400  hover:bg-gray-800/30 hover:text-cyan-400"
+                        onClick={() => {
+                          document.body.classList.remove("overflow-hidden");
+                          setShowNavbar(false);
+                        }}
                       >
                         Alumni
-                      </a>
+                      </Link>
                     </li>
                   </ul>
                 </details>
@@ -539,21 +579,29 @@ useEffect(() => {
 
                   <ul className="mt-2 space-y-1 px-4">
                     <li>
-                      <a
+                      <Link
                         href="/work/current-year"
                         className="block rounded-lg px-4 py-1 text-sm font-medium text-gray-400  hover:bg-gray-800/30 hover:text-cyan-400"
+                        onClick={() => {
+                          document.body.classList.remove("overflow-hidden");
+                          setShowNavbar(false);
+                        }}
                       >
                         Current Year
-                      </a>
+                      </Link>
                     </li>
 
                     <li>
-                      <a
+                      <Link
                         href="/work/previous-year"
                         className="block rounded-lg px-4 py-1 text-sm font-medium text-gray-400  hover:bg-gray-800/30 hover:text-cyan-400"
+                        onClick={() => {
+                          document.body.classList.remove("overflow-hidden");
+                          setShowNavbar(false);
+                        }}
                       >
                         Previous Year
-                      </a>
+                      </Link>
                     </li>
                   </ul>
                 </details>
