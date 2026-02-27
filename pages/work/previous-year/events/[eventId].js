@@ -66,7 +66,7 @@ console.log(Event)
               />
             </motion.div>
 
-            {/* Text Section */}
+        
             <motion.div
               className="lg:w-[65%] w-full flex md:p-10 flex-col justify-center space-y-4 font-sans"
               {...(isLaptop && {

@@ -39,7 +39,7 @@ const Page = () => {
           </span>
 
           {/* Projects grid */}
-          <div className="container mx-auto p-7 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mt-5">
+          <div className="container mx-auto p-7 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mt-5 justify-items-center">
             {loading
               ? Array.from({ length: projectList.length || 6 }).map((_, index) => (
                   <SkeletonProjectCard key={index} />

@@ -14,6 +14,7 @@ import {
   Cpu,
   History,
   Home,
+  LinkIcon,
   Mail,
   Slack,
   User,
@@ -34,6 +35,12 @@ const projects = [
     href: "/projects/ar-vr",
     icon: Box,
   },
+   {
+    name: "BLOCKCHAIN",
+    href: "/projects/blockchain",
+    icon: LinkIcon,
+  },
+
   {
     name: "IoT",
     href: "/projects/iot",
@@ -130,17 +137,19 @@ export default function Navigation() {
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth < 768); // Adjust the breakpoint as needed
+      setIsMobile(window.innerWidth < 768); 
     };
-    setActiveRoute(router.pathname);
+    setActiveRoute(router.asPath);
 
-    handleResize(); // Call handleResize initially to set the initial state
+    handleResize(); 
     window.addEventListener("resize", handleResize);
+    
+
 
     return () => {
       window.removeEventListener("resize", handleResize);
     };
-  }, [router.pathname]); //for resize
+  }, [router.asPath]); 
 
   const toggleProjectVisibility = () => {
     setProjectVisible(!ProjectVisible);
@@ -148,6 +157,7 @@ export default function Navigation() {
 
   const handleProjectClick = (e) => {
     e.preventDefault();
+    e.stopPropagation();
     if (ProjectVisible) {
       document.documentElement.style.setProperty(
         "--border-radius--menu-wrapper",
@@ -178,6 +188,7 @@ export default function Navigation() {
 
   const handleWorkClick = (e) => {
     e.preventDefault();
+    e.stopPropagation();
     if (WorkVisible) {
       document.documentElement.style.setProperty(
         "--border-radius--menu-wrapper",
@@ -200,6 +211,7 @@ export default function Navigation() {
     toggleWorkVisibility();
     setProjectVisible(false);
     setTeamVisible(false);
+   
   };
 
   const toggleTeamVisibility = () => {
@@ -208,6 +220,7 @@ export default function Navigation() {
 
   const handleTeamClick = (e) => {
     e.preventDefault();
+    e.stopPropagation();
     if (TeamVisible) {
       document.documentElement.style.setProperty(
         "--border-radius--menu-wrapper",
@@ -240,9 +253,8 @@ export default function Navigation() {
         setTeamVisible(false);
       }
     };
-    // const [blurBack, setBlurBack]=useState(false)
     const handleScroll = () => {
-      // Close subnavigation menus when scrolling down
+    
       if (
         window.scrollY > window.scrollY / 2 &&
         (ProjectVisible || WorkVisible || TeamVisible)
@@ -260,7 +272,7 @@ export default function Navigation() {
       document.removeEventListener("mousedown", handleClickOutside);
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [ProjectVisible, WorkVisible, TeamVisible]); //navigation of submenus
+  }, [ProjectVisible, WorkVisible, TeamVisible]); 
 
   const handleSubmenuClick = () => {
     setProjectVisible(false);
@@ -272,16 +284,35 @@ export default function Navigation() {
     if (typeof window !== "undefined") {
       if (window.scrollY > 300) {
         if (window.scrollY > lastScrollY) {
-          // Scrolling down
+        
           setIsVisible(false);
         } else {
-          // Scrolling up
           setIsVisible(true);
         }
       }
       setLastScrollY(window.scrollY);
     }
   };
+  // Add this block near your other useEffects
+useEffect(() => {
+  const handleRouteChange = () => {
+    // Reset all visibility states so the next click works fresh
+    setProjectVisible(false);
+    setWorkVisible(false);
+    setTeamVisible(false);
+    setShowNavbar(false);
+    if (typeof document !== 'undefined') {
+      document.body.classList.remove("overflow-hidden");
+    }
+  };
+
+  // Listen for the router finishing a page change
+  router.events.on('routeChangeComplete', handleRouteChange);
+
+  return () => {
+    router.events.off('routeChangeComplete', handleRouteChange);
+  };
+}, [router.events]);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -392,7 +423,18 @@ export default function Navigation() {
                       </a>
                     </li>
 
+                      <li>
+                      
+                      <a
+                        href="/projects/blockchain"
+                        className="block rounded-lg px-4 py-1 text-sm font-medium text-gray-400  hover:bg-gray-800/30 hover:text-cyan-400"
+                      >
+                        BLOCKCHAIN
+                      </a>
+                    </li>
+
                     <li>
+
                       <a
                         href="/projects/iot"
                         className="block rounded-lg px-4 py-1 text-sm font-medium text-gray-400  hover:bg-gray-800/30 hover:text-cyan-400"
@@ -536,7 +578,7 @@ export default function Navigation() {
     </div>
   ) : (
     <div
-      className={`fixed top-1 left-0 right-0 z-50 flex justify-between p-2 sm:p-3 backdrop:blur-sm backdrop:brightness-75 transition-custom transition-all ease-in-out duration-300 text-3xl sm:text-4xl font-orbitron    ${isVisible ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"
+      className={`fixed top-1 left-0 right-0 z-[9999] flex justify-between p-2 sm:p-3 backdrop:blur-sm backdrop:brightness-75 transition-custom transition-all ease-in-out duration-300 text-3xl sm:text-4xl font-orbitron    ${isVisible ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"
         }`}
     >
       <Link href="/">
@@ -546,25 +588,33 @@ export default function Navigation() {
       </Link>
       <nav
         ref={navRef}
-        className={`fixed top-1 left-0 right-0 z-50 mx-auto w-[95%] sm:w-[85%] md:w-[75%] lg:w-[70%] gap-x-2 gap-y-2 text-gray-200 rounded-[var(--border-radius--menu-wrapper)]  bg-[rgba(26,27,30,0.4)] bg-opacity-60 border  flex-col-reverse flex  max-sm:p-[5px] border-solid border-[#333333] border-opacity-55 transition-custom transition-all ease-in-out duration-300 max-w-[900px] shadow-2xl  ${isVisible
+        className={`fixed top-1 left-0 right-0 z-[9999] re mx-auto w-[95%] sm:w-[85%] md:w-[75%] lg:w-[70%] gap-x-2 gap-y-2 text-gray-200 rounded-[var(--border-radius--menu-wrapper)]  bg-[rgba(26,27,30,0.4)] bg-opacity-60 border  flex-col-reverse flex  max-sm:p-[5px] border-solid border-[#333333] border-opacity-55 transition-custom transition-all ease-in-out duration-300 max-w-[900px] shadow-2xl  ${isVisible
           ? "translate-y-0 opacity-100"
           : "-translate-y-full opacity-0"
           } `}
       >
         {ProjectVisible && (
-          <div className="max-w-full gap-x-3 sm:gap-x-6 gap-y-3 sm:gap-y-6 bg-cyan-400/15 border border-cyan-300/50 backdrop-blur-xl flex-col flex overflow-hidden p-3 sm:p-0 rounded-[12px] animateNav transition-custom hover:bg-purple-500/25">
-            <div className="gap-x-2 sm:gap-x-4 gap-y-2 sm:gap-y-4 grid-rows-[auto_auto] grid-cols-[1fr_1fr_1fr] auto-cols-[1fr] justify-items-center grid my-3 sm:my-6 mx-3 sm:mx-6 ">
-              {projects.map((item) => (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  className="text-white text-center text-xs sm:text-sm  leading-[142.857%] max-sm:leading-none no-underline  transition-all duration-[0.2s] ease-[ease-in-out]"
-                  onClick={handleSubmenuClick}
-                >
-                  <item.icon className="inline mx-2 sm:mx-4 w-4 sm:w-6 h-4 sm:h-6" />
-                  {item.name}
-                </Link>
-              ))}
+          <div className="relative z-40 max-w-full gap-x-3 sm:gap-x-6 gap-y-3 sm:gap-y-6 bg-cyan-400/15 border border-cyan-300/50 backdrop-blur-xl flex-col flex overflow-hidden p-3 sm:p-0 rounded-[12px] animateNav transition-custom hover:bg-purple-500/25">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-x-12 gap-y-6 justify-items-start my-4 sm:my-6 mx-auto w-fit max-w-full px-8">
+           {projects.map((item) => (
+  <Link
+    key={item.name}
+    href={item.href || "/"}
+    className="flex items-center gap-3 text-white no-underline hover:text-cyan-400 transition-all group w-full"
+    onClick={(e) => {
+      e.stopPropagation();
+      handleSubmenuClick();
+    }}
+  >
+    {/* shrink-0 is vital so the icon stays 20px wide even if text is long */}
+    <item.icon className="w-5 h-5 shrink-0 transition-colors group-hover:text-purple-500" />
+    
+    {/* whitespace-nowrap prevents the text from breaking into two lines */}
+    <span className="text-[10px] sm:text-xs uppercase tracking-widest whitespace-nowrap font-orbitron">
+      {item.name}
+    </span>
+  </Link>
+))}
             </div>
           </div>
         )}
@@ -603,14 +653,14 @@ export default function Navigation() {
           </div>
         )}
         <div
-          className={`w-full flex gap-x-0 gap-y-2 rounded-[var(--border-radius--menu-link)] 
+          className={`z-50 w-full flex gap-x-0 gap-y-2 rounded-[var(--border-radius--menu-link)] 
     bg-cyan-400/15 border border-cyan-300/50 justify-evenly items-center overflow-auto p-1 max-sm:p-2 
     transition-custom text-lg sm:text-xl md:text-2xl font-orbitron shadow-2xl shadow-cyan-400/20
  backdrop-blur-xl
     ${isVisible ? "backdrop-blur-xl" : ""}`}
         >
 
-          {/* Projects */}
+        
           <p
             onClick={handleProjectClick}
             className={`menuLink ${activeRoute.startsWith("/projects") ? "active" : ""}`}
@@ -636,7 +686,7 @@ export default function Navigation() {
             </div>
           </p>
 
-          {/* Work */}
+      
           <p
             onClick={handleWorkClick}
             className={`menuLink ${activeRoute.startsWith("/work/") ? "active" : ""}`}
@@ -662,7 +712,6 @@ export default function Navigation() {
             </div>
           </p>
 
-          {/* Home */}
           <Link href="/" className={`menuLink ${location.pathname === "/" ? "active" : ""}`}>
             <div className="group flex items-center gap-2">
               <span
@@ -681,7 +730,7 @@ export default function Navigation() {
             </div>
           </Link>
 
-          {/* Team */}
+          
           <p
             onClick={handleTeamClick}
             className={`menuLink ${activeRoute.startsWith("/team") ? "active" : ""}`}
@@ -707,7 +756,7 @@ export default function Navigation() {
             </div>
           </p>
 
-          {/* Contact */}
+        
           <Link href="/" scroll={false}>
             <p onClick={scrollToBottom} className="menuLink">
               <div className="group flex items-center gap-2">
@@ -728,176 +777,3 @@ export default function Navigation() {
     </div>
   );
 }
-// "use client";
-
-// import React, { useState, useRef, useEffect } from "react";
-// import Link from "next/link";
-// import { useRouter } from "next/navigation";
-// import { motion, AnimatePresence } from "framer-motion";
-
-// // React Icons
-// import { RiTeamLine } from "react-icons/ri";
-// import { AiOutlineTeam } from "react-icons/ai";
-// import { HiPresentationChartBar } from "react-icons/hi";
-// import { MdWork } from "react-icons/md";
-
-// // Lucide Icons
-// import {
-//   Cpu,
-//   Box,
-//   Slack,
-//   Wifi,
-//   Blocks,
-//   Home,
-//   Mail,
-//   Bot,
-//   AudioLines,
-// } from "lucide-react";
-
-// /* ===== DATA ===== */
-
-// const projects = [
-//   { name: "AI / ML", href: "/projects/ai-ml", icon: Bot },
-//   { name: "AR / VR", href: "/projects/ar-vr", icon: Box },
-//   { name: "Quantum", href: "/projects/quantum", icon: Slack },
-//   { name: "DSP", href: "/projects/dsp", icon: AudioLines },
-//   { name: "Embedded", href: "/projects/embedded", icon: Cpu },
-//   { name: "Blockchain", href: "/projects/blockchain", icon: Blocks },
-//   { name: "IoT", href: "/projects/iot", icon: Wifi },
-// ];
-
-// const ourwork = [
-//   { name: "Current Year", href: "/work/current-year", icon: MdWork },
-//   { name: "Previous Year", href: "/work/previous-year", icon: HiPresentationChartBar },
-// ];
-
-// const ourteam = [
-//   { name: "Current Team", href: "/team/current-team", icon: RiTeamLine },
-//   { name: "Alumni", href: "/team/alumni", icon: AiOutlineTeam },
-// ];
-
-// export default function Navigation() {
-//   const router = useRouter();
-//   const navRef = useRef(null);
-//   const [activeMenu, setActiveMenu] = useState(null);
-
-//   /* ===== CLOSE MENU ON OUTSIDE CLICK ===== */
-//   useEffect(() => {
-//     const handleClick = (e) => {
-//       if (navRef.current && !navRef.current.contains(e.target)) {
-//         setActiveMenu(null);
-//       }
-//     };
-//     document.addEventListener("click", handleClick);
-//     return () => document.removeEventListener("click", handleClick);
-//   }, []);
-
-//   const scrollToBottom = () => {
-//     setActiveMenu(null);
-//     window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
-//   };
-
-//   const dockItems = [
-//     { key: "projects", label: "PROJECTS", sub: "OUR WORK", icon: Cpu },
-//     { key: "work", label: "WORK", sub: "WHAT WE DO", icon: MdWork },
-//     { key: "home", label: "HOME", sub: "MAIN HUB", icon: Home },
-//     { key: "team", label: "TEAM", sub: "OUR CREW", icon: RiTeamLine },
-//     { key: "contact", label: "CONTACT", sub: "REACH US", icon: Mail },
-//   ];
-
-//   return (
-//     <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-[100] font-orbitron">
-//       <div ref={navRef} className="relative flex gap-6">
-
-//         {/* ===== DOCK BUTTONS ===== */}
-//         {dockItems.map((item) => (
-//           <button
-//             key={item.key}
-//             type="button"
-//             onClick={() => {
-//               if (item.key === "home") {
-//                 setActiveMenu(null);
-//                 router.push("/");
-//               } else if (item.key === "contact") {
-//                 scrollToBottom();
-//               } else {
-//                 setActiveMenu((prev) => (prev === item.key ? null : item.key));
-//               }
-//             }}
-//             className="
-//               group relative
-//               w-[150px] h-[110px]
-//               rounded-2xl
-//               bg-cyan-400/20 backdrop-blur-sm
-//               border border-cyan-400
-//               shadow-[0_6px_18px_rgba(0,0,0,0.35)]
-//               flex flex-col items-center justify-center gap-2
-//               text-white
-//               transition-all duration-300
-//               hover:scale-105
-//               hover:shadow-[0_0_30px_rgba(34,211,238,0.75)]
-//             "
-//           >
-//             <span className="text-xs tracking-[0.25em]">
-//               {item.label}
-//             </span>
-
-//             <item.icon
-//               size={26}
-//               className="text-white group-hover:text-cyan-300 transition-colors"
-//             />
-
-//             <span className="text-[11px] tracking-[0.25em] text-cyan-300">
-//               {item.sub}
-//             </span>
-//           </button>
-//         ))}
-
-//         {/* ===== SUBMENU ===== */}
-//         <AnimatePresence>
-//           {activeMenu && (
-//             <motion.div
-//               initial={{ opacity: 0, y: 20 }}
-//               animate={{ opacity: 1, y: 0 }}
-//               exit={{ opacity: 0, y: 20 }}
-//               className="
-//                 absolute bottom-[140px] left-1/2 -translate-x-1/2
-//                 w-[620px]
-//                 bg-cyan-400/20 backdrop-blur-sm
-//                 border border-cyan-400
-//                 rounded-2xl
-//                 shadow-2xl
-//               "
-//             >
-//               <div
-//                 className={`grid gap-6 px-10 py-8 place-items-center ${
-//                   activeMenu === "projects" ? "grid-cols-3" : "grid-cols-2"
-//                 }`}
-//               >
-//                 {(activeMenu === "projects"
-//                   ? projects
-//                   : activeMenu === "work"
-//                   ? ourwork
-//                   : ourteam
-//                 ).map((item) => (
-//                   <Link
-//                     key={item.name}
-//                     href={item.href}
-//                     onClick={() => setActiveMenu(null)}
-//                     className="flex items-center gap-3 text-white hover:text-cyan-300 transition"
-//                   >
-//                     <item.icon size={18} />
-//                     <span className="text-xs tracking-widest">
-//                       {item.name}
-//                     </span>
-//                   </Link>
-//                 ))}
-//               </div>
-//             </motion.div>
-//           )}
-//         </AnimatePresence>
-
-//       </div>
-//     </div>
-//   );
-// }

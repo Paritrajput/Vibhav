@@ -16,10 +16,9 @@ export default function GuestLectureDetails() {
     setIsLaptop(window.innerWidth >= 768);
   }, []);
 
-  // Router not ready yet
   if (!lectureId) return null;
 
-  // Find lecture
+
   const Lecture = workData.Previous.GuestLectures.find(
     (item) => item.id === Number(lectureId)
   );
@@ -37,7 +36,7 @@ export default function GuestLectureDetails() {
   return (
     <Layout>
       <div className="container mx-auto pt-24 md:pt-32 p-6 text-white relative">
-        {/* Title */}
+
         <motion.h1
           className="text-4xl text-center font-batman font-extrabold mb-4"
           initial={{ opacity: 0, y: -50 }}
@@ -47,7 +46,6 @@ export default function GuestLectureDetails() {
           {Lecture.name}
         </motion.h1>
 
-        {/* Speaker */}
         {Lecture.speaker && (
           <motion.p
             className="text-lg text-center mb-8 text-gray-300"
@@ -59,7 +57,7 @@ export default function GuestLectureDetails() {
           </motion.p>
         )}
 
-        {/* Content */}
+     
         <div className="space-y-16 p-5 md:p-8 my-5 text-justify">
           {Lecture.images.map((image, index) => (
             <motion.div
@@ -68,7 +66,7 @@ export default function GuestLectureDetails() {
                 index % 2 !== 0 ? "lg:flex-row-reverse" : ""
               } gap-10`}
             >
-              {/* Image */}
+          
               <motion.div
                 className="flex-shrink-0 w-full lg:w-auto flex justify-center"
                 {...(isLaptop && {
@@ -85,7 +83,7 @@ export default function GuestLectureDetails() {
                 />
               </motion.div>
 
-              {/* Text */}
+            
               <motion.div
                 className="lg:w-[65%] w-full flex md:p-10 flex-col justify-center space-y-4 font-sans"
                 initial={{ opacity: 0, x: index % 2 === 0 ? 100 : -100 }}
