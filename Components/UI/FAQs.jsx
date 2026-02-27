@@ -59,7 +59,7 @@ export default function FAQs() {
                   >
                     
                     
-                  <div className="text-xs sm:text-sm font-arvo font-bold text-left text-gray-200 tracking-[0.05em] leading-relaxed group-hover:text-cyan-300 transition-colors">
+                  <div className="text-xs sm:text-sm font-chakra   font-bold text-left text-gray-200 tracking-[0.05em] leading-relaxed group-hover:text-cyan-300 transition-colors">
                    {faq.question}
                        </div>
                     
