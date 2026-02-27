@@ -17,11 +17,11 @@ function GameSection() {
       <p className="mx-0 text-xl text-gray-400  text-center font-chakra ">Think You Know Us? Put Your Knowledge to the Test!</p>
       </div>
       
-      {/* Game Card */}
+      
       <div className="relative p-5 mt-5 rounded-xl bg-gray-600/30">
         <div className="relative w-full h-40 rounded-md overflow-hidden group cursor-pointer">
           
-          {/* Clickable Image */}
+          
           <a
             href="https://vibhav124.itch.io/vibhavgame"
             target="_blank"
@@ -35,7 +35,7 @@ function GameSection() {
             />
           </a>
 
-          {/* Hover Button */}
+        
           <a
             href="https://vibhav124.itch.io/vibhavgame"
             target="_blank"
@@ -48,7 +48,7 @@ function GameSection() {
           </a>
         </div>
 
-        {/* Game Details */}
+        
         <div className="flex flex-col items-center mt-3 text-center">
           <a
             href="https://vibhav124.itch.io/vibhavgame"

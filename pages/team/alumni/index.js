@@ -24,7 +24,7 @@ const Aluminus = () => {
     setIsOpen(false);
   };
 
-  // Prevent body scroll when mobile dropdown is open
+ 
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
@@ -46,17 +46,17 @@ const Aluminus = () => {
           className="fixed top-0 left-0 w-full h-full object-cover z-[-2]"
         />
 
-        {/* Main Title */}
+        
         <h1 className="text-3xl sm:text-6xl font-extrabold text-center mb-10 sm:mb-16 font-batman tracking-widest uppercase">
           Alumni
         </h1>
 
         <div className="flex flex-col items-center">
           
-          {/* NAVIGATION SECTION */}
+         
           <div className="w-full flex items-center justify-center mb-12 sm:mb-24 px-4">
             
-            {/* MOBILE DROPDOWN */}
+           
             <div className="md:hidden w-full max-w-[280px] relative z-50">
               <button
                 onClick={() => setIsOpen(!isOpen)}
@@ -83,7 +83,7 @@ const Aluminus = () => {
               )}
             </div>
 
-            {/* DESKTOP PILL BAR */}
+           
             <div className="hidden md:flex items-center bg-zinc-900/40 backdrop-blur-md rounded-full border border-white/10 px-8 py-4 gap-6">
               {years.map((year) => (
                 <button
@@ -101,19 +101,19 @@ const Aluminus = () => {
             </div>
           </div>
 
-          {/* SECTION SUBHEADING */}
+          
           <div className="text-xl sm:text-4xl text-[#5b8ef3] font-chakraBold flex justify-center mb-14 text-center uppercase tracking-normal drop-shadow-[0_0_10px_rgba(91,142,243,0.8)] px-6">
             <h1>{yearLabels[selectedYear]}</h1>
           </div>
 
-          {/* ALUMNI GRID */}
+         
           <div className="w-full max-w-[1500px] px-6 pb-24">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-y-10 sm:gap-y-24 justify-items-center">
               {Alumni[selectedYear]?.map((member, index) => (
                 <ProfileCard
                   key={index}
                   name={member.Name}
-                  position={member.Position || "Alumnus"} // Default position if missing in JSON
+                  position={member.Position || "Alumnus"} 
                   profileImg={member.Profile}
                   githubLink={member.Github}
                   linkdinLink={member.LinkedIn}

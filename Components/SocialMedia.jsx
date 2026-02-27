@@ -13,10 +13,10 @@ export default function SocialLinks() {
   const landingPageRef = useRef(null);
 
   useEffect(() => {
-    // Use Intersection Observer for precise landing page detection
+    
     const observer = new IntersectionObserver(
       ([entry]) => {
-        // Show social handles only when landing page is in view
+        
         if (entry.isIntersecting) {
           setIsVisible(true);
         } else {
@@ -24,11 +24,11 @@ export default function SocialLinks() {
         }
       },
       {
-        threshold: 0.1, // Trigger when 10% of landing page is visible
+        threshold: 0.1, 
       }
     );
 
-    // Get the landing page header element
+    
     const landingPage = document.querySelector("header.relative");
     if (landingPage) {
       observer.observe(landingPage);
@@ -81,68 +81,3 @@ export default function SocialLinks() {
 }
 
 
-// "use client";
-
-// import React from "react";
-// import {
-//   FaLinkedin,
-//   FaGithub,
-//   FaFacebook,
-//   FaInstagram,
-//   FaDiscord,
-// } from "react-icons/fa";
-
-// export default function SocialLinks() {
-//   return (
-//     <div className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-50">
-//       <div className="flex flex-wrap justify-center">
-
-//         <a
-//           aria-label="Github"
-//           className="flex items-center justify-center p-1.5 rounded-full bg-white text-black mt-4 hover:text-white hover:bg-[#303033] ease-in-out duration-200 hover:scale-125"
-//           href="https://github.com/Team-Vibhav"
-//           target="_blank"
-//         >
-//           <FaGithub className="w-7 h-7 md:w-10 md:h-10" />
-//         </a>
-
-//         <a
-//           className="flex items-center justify-center p-1.5 rounded-full bg-white text-black ml-5 md:ml-7 mt-4 hover:text-white hover:bg-gradient-to-tr hover:from-[#fa7e1e] hover:to-[#962fbf] ease-in-out duration-200 hover:scale-125"
-//           aria-label="Instagram"
-//           href="https://www.instagram.com/team_vibhav/"
-//           target="_blank"
-//         >
-//           <FaInstagram className="w-7 h-7 md:w-10 md:h-10" />
-//         </a>
-
-//         <a
-//           className="flex items-center justify-center p-1.5 rounded-full bg-white text-black ml-5 md:ml-7 mt-4 hover:text-white hover:bg-blue-600 ease-in-out duration-200 hover:scale-125"
-//           aria-label="Facebook"
-//           href="https://m.facebook.com/262566097142744/"
-//           target="_blank"
-//         >
-//           <FaFacebook className="w-7 h-7 md:w-10 md:h-10" />
-//         </a>
-
-//         <a
-//           aria-label="Discord"
-//           className="flex items-center justify-center p-1.5 rounded-full bg-white text-black ml-5 md:ml-7 mt-4 hover:text-white hover:bg-[#576fbf] ease-in-out duration-200 hover:scale-125"
-//           href="https://discord.gg/cc3j3GbCrX"
-//           target="_blank"
-//         >
-//           <FaDiscord className="w-7 h-7 md:w-10 md:h-10" />
-//         </a>
-
-//         <a
-//           className="flex items-center justify-center p-1.5 rounded-full bg-white text-black ml-5 md:ml-7 mt-4 hover:text-white hover:bg-[#0072b1] ease-in-out duration-200 hover:scale-125"
-//           aria-label="LinkedIn"
-//           href="https://www.linkedin.com/company/team-vibhav"
-//           target="_blank"
-//         >
-//           <FaLinkedin className="w-7 h-7 md:w-10 md:h-10" />
-//         </a>
-
-//       </div>
-//     </div>
-//   );
-// }

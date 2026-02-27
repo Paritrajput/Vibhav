@@ -293,10 +293,10 @@ export default function Navigation() {
       setLastScrollY(window.scrollY);
     }
   };
-  // Add this block near your other useEffects
+  
 useEffect(() => {
   const handleRouteChange = () => {
-    // Reset all visibility states so the next click works fresh
+    
     setProjectVisible(false);
     setWorkVisible(false);
     setTeamVisible(false);
@@ -306,7 +306,7 @@ useEffect(() => {
     }
   };
 
-  // Listen for the router finishing a page change
+  
   router.events.on('routeChangeComplete', handleRouteChange);
 
   return () => {
@@ -654,10 +654,10 @@ useEffect(() => {
       handleSubmenuClick();
     }}
   >
-    {/* shrink-0 is vital so the icon stays 20px wide even if text is long */}
+    
     <item.icon className="w-5 h-5 shrink-0 transition-colors group-hover:text-purple-500" />
     
-    {/* whitespace-nowrap prevents the text from breaking into two lines */}
+   
     <span className="text-[10px] sm:text-xs uppercase tracking-widest whitespace-nowrap font-orbitron">
       {item.name}
     </span>

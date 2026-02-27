@@ -10,43 +10,43 @@ const Page = () => {
   const [projectList, setProjectList] = useState([]);
 
   useEffect(() => {
-    // Make sure the key matches your JSON exactly
+   
     setProjectList(projects["AR/VR"] || []);
 
     const timer = setTimeout(() => {
       setLoading(false);
     }, 500);
 
-    return () => clearTimeout(timer); // cleanup
+    return () => clearTimeout(timer); 
   }, []);
 
   return (
     <Layout>
       <div className="relative min-h-screen text-white">
-        {/* Dark overlay */}
+      
         <div className="fixed inset-0 bg-black/50 pointer-events-none z-[-1]"></div>
 
-        {/* Background image */}
+       
         <img
           src="/Assets/projectbackground.jpg"
           alt="Background"
           className="fixed top-0 left-0 w-full h-full object-cover z-[-2]"
         />
 
-        {/* Content */}
+        
         <div className="pt-32 text-center z-50 relative font-batman">
-          {/* Page Heading */}
+          
           <h1 className="text-3xl sm:text-5xl font-extrabold text-center mb-10 font-batman tracking-widest uppercase 
               text-[#3f7aff] drop-shadow-[0_0_15px_rgba(63,122,255,0.9)]">
             Projects
           </h1>
 
-          {/* Subheading */}
+          
           <span className="sm:text-3xl text-2xl text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-cyan-300 to-purple-400 font-chakraBold mb-10 inline-block">
             AR-VR
           </span>
 
-          {/* Projects Grid */}
+          
           <div className="container mx-auto p-7 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mt-5 justify-items-center">
             {loading
               ? Array.from({ length: projectList.length || 6 }).map((_, index) => (

@@ -10,23 +10,23 @@ const Page = () => {
   const [projectList, setProjectList] = useState([]);
 
   useEffect(() => {
-    // Make sure this key matches your JSON exactly
+    
     setProjectList(projects["AI/ML"]);
 
     const timer = setTimeout(() => {
       setLoading(false);
     }, 500);
 
-    return () => clearTimeout(timer); // cleanup on unmount
+    return () => clearTimeout(timer); 
   }, []);
 
   return (
     <Layout>
       <div className="relative">
-        {/* Dark overlay */}
+       
         <div className="fixed bottom-0 top-0 left-0 w-full bg-black/50 pointer-events-none z-[-1]"></div>
 
-        {/* Background image */}
+      
         <img
           src="/Assets/projectbackground.jpg"
           alt="Background"
@@ -34,12 +34,7 @@ const Page = () => {
         />
 
         <div className="pt-32 text-center z-50 relative">
-          {/* Page heading */}
-          {/* <h1 className="sm:text-5xl text-3xl text-transparent bg-clip-text 
-            bg-gradient-to-r from-[#3f7aff] via-[#2c63ff] to-[#1a4dff] 
-            font-extrabold mb-10 font-batman">
-          Projects
-          </h1> */}
+        
           <h1 className="text-3xl sm:text-5xl font-extrabold text-center mb-10 font-batman tracking-widest uppercase 
               text-[#3f7aff] drop-shadow-[0_0_15px_rgba(63,122,255,0.9)]">
             Projects
@@ -47,12 +42,12 @@ const Page = () => {
 
 
 
-          {/* Subheading */}
+         
           <span className="sm:text-3xl text-2xl text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-cyan-300 to-purple-400 font-chakraBold">
             AI-ML
           </span>
 
-          {/* Projects grid */}
+          
           <div className="container mx-auto p-7 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mt-5 justify-items-center">
             {loading
               ? Array.from({ length: projectList.length || 6 }).map((_, index) => (

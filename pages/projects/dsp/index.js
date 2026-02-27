@@ -12,16 +12,16 @@ const Page = () => {
     const timer = setTimeout(() => {
       setLoading(false);
     }, 500);
-    return () => clearTimeout(timer); // cleanup
+    return () => clearTimeout(timer);
   }, []);
 
   return (
     <Layout>
       <div className="">
-        {/* dark overlay */}
+        
         <div className="fixed bottom-0 top-0 left-0 w-full bg-black/2 pointer-events-none z-[-1]"></div>
 
-        {/* background image instead of video */}
+        
         <img
           src="/Assets/projectbackground.jpg"
           alt="Background"
@@ -29,7 +29,7 @@ const Page = () => {
         />
 
         <div className="pt-32 bg-black/50 text-center z-50 font-batman">
-          {/* Heading */}
+          
           <h1 className="text-3xl sm:text-5xl font-extrabold text-center mb-10 font-batman tracking-widest uppercase 
               text-[#3f7aff] drop-shadow-[0_0_15px_rgba(63,122,255,0.9)]">
             Projects
@@ -38,7 +38,7 @@ const Page = () => {
             DSP
           </span>
 
-          {/* Projects grid */}
+          
           <div className="container mx-auto p-7 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mt-5 justify-items-center">
             {loading
               ? Array.from({ length: projectList.length || 6 }).map((_, index) => (
