@@ -1,7 +1,7 @@
-// "use client";
+
+// import Image from "next/image";
 
 // import { useState, useEffect } from "react";
-
 // export default function Loading() {
 //   const fonts = [
 //     "Arial, sans-serif",
@@ -13,26 +13,36 @@
 //     "Comic Sans MS, cursive",
 //     "Impact, sans-serif",
 //   ];
-
 //   const [loading, setLoading] = useState(true);
+
+//   useEffect(() => {
+//     const timeout = setTimeout(() => {
+//       setLoading(false);
+//     }, 3000);
+
+//     return () => clearTimeout(timeout);
+//   }, []);
 
 //   const AnimatedText = ({ text }) => {
 //     const [fontStyles, setFontStyles] = useState([]);
 
 //     useEffect(() => {
-//       const interval = setInterval(() => {
+//       const changeFonts = () => {
 //         setFontStyles(
-//           text.split("").map(
-//             () => fonts[Math.floor(Math.random() * fonts.length)]
-//           )
+//           text
+//             .split("")
+//             .map(() => fonts[Math.floor(Math.random() * fonts.length)])
 //         );
-//       }, 250);
+//       };
+
+//       changeFonts();
+//       const interval = setInterval(changeFonts, 250);
 
 //       return () => clearInterval(interval);
 //     }, [text]);
 
 //     return (
-//       <div className="z-10 flex space-x-1 sm:text-5xl text-4xl font-bold text-white">
+//       <div className="flex space-x-1 sm:text-5xl text-4xl font-bold text-white">
 //         {text.split("").map((char, index) => (
 //           <span key={index} style={{ fontFamily: fontStyles[index] }}>
 //             {char}
@@ -42,28 +52,17 @@
 //     );
 //   };
 
-//   if (!loading) return null;
-
 //   return (
-//     <div className="relative flex items-center justify-center h-screen bg-black overflow-hidden">
-      
-//       {/* 🎥 12 second video */}
-//       <video
-//         src="/loading.mp4.mp4"
-//         autoPlay
-//         muted
-//         playsInline
-//         onEnded={() => setLoading(false)} // ⭐ KEY FIX
-//         className="absolute inset-0 w-full h-full object-cover"
-//       />
-
-//       <AnimatedText text="Team Vibhav" />
+//     <div className="flex justify-center items-center h-screen">
+//       {loading && <AnimatedText text="Team Vibhav" />}
 //     </div>
 //   );
 // }
-import Image from "next/image";
+
+"use client";
 
 import { useState, useEffect } from "react";
+
 export default function Loading() {
   const fonts = [
     "Arial, sans-serif",
@@ -75,6 +74,7 @@ export default function Loading() {
     "Comic Sans MS, cursive",
     "Impact, sans-serif",
   ];
+
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -115,8 +115,31 @@ export default function Loading() {
   };
 
   return (
-    <div className="flex justify-center items-center h-screen">
-      {loading && <AnimatedText text="Team Vibhav" />}
+    <div className="relative h-screen w-full overflow-hidden flex justify-center items-center">
+      {/* Background Video */}
+      {/* <video
+        src="/Assets/newtechCity.mp4"
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover -z-10"
+      /> */}
+       <img
+                src="/Assets/purpleNeoncity.png"
+                alt="Background"
+                className="absolute inset-0 w-full h-full object-cover -z-10"
+              /> 
+
+      {/* Dark overlay */}
+      <div className="absolute inset-0 bg-black/75 -z-0" />
+
+      {/* Foreground content */}
+      {loading && (
+        <div className="relative z-10">
+          <AnimatedText text="Team Vibhav" />
+        </div>
+      )}
     </div>
   );
 }

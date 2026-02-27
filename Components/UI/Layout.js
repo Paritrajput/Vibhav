@@ -7,12 +7,12 @@ import Navigation from "./Navigation";
 export default function Layout({ children }) {
   return (
     <>
-     
       <Navigation />
 
-     
-      <div className="bg-black bg-opacity-80">
+      <div className="bg-black bg-opacity-70">
+        {/* PAGE CONTENT */}
         {children}
+
         <Footer />
         <STT />
       </div>

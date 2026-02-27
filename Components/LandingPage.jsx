@@ -29,10 +29,10 @@ export default function LandingPage() {
                 options={{ loop: true }}
                 onInit={(typewriter) => {
                   typewriter
-                    .typeString("Beyond the Infinity")
+                    .typeString("Beyond the Infinity....")
                     .pauseFor(1000)
                     .deleteAll()
-                    .typeString("अनंत से भी आगे")
+                    .typeString("अनंत से भी आगे....")
                     .pauseFor(1000)
                     .start();
                 }}
