@@ -36,20 +36,20 @@ export default function Home() {
               className="relative h-screen w-full overflow-hidden"
             >
           
-              {/* <img
+              <img
                 src="/Assets/purpleNeoncity.png"
                 alt="Background"
                 className="absolute inset-0 w-full h-full object-cover -z-10"
-              /> */}
+              />
 
-              <video
+              {/* <video
               src="/Assets/rain.mp4"
               autoPlay
               loop
               muted
               playsInline
               className="absolute inset-0 w-full h-full object-cover -z-10"
-            />
+            /> */}
 
            
               {/* <div className="absolute inset-0 bg-black/40 z-10" /> */}

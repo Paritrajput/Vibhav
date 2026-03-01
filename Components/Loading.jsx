@@ -125,11 +125,20 @@ export default function Loading() {
         playsInline
         className="absolute inset-0 w-full h-full object-cover -z-10"
       /> */}
-       <img
+       {/* <img
                 src="/Assets/purpleNeoncity.png"
                 alt="Background"
                 className="absolute inset-0 w-full h-full object-cover -z-10"
-              /> 
+              />  */}
+
+              <video
+              src="/Assets/rain.mp4"
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="absolute inset-0 w-full h-full object-cover -z-10"
+            />
 
       {/* Dark overlay */}
       <div className="absolute inset-0 bg-black/75 -z-0" />
