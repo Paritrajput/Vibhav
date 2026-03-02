@@ -9,9 +9,16 @@ export default function WorkDetails() {
   const router = useRouter();
   const { workshopId } = useParams();
 
-  const workshop = workData.Previous.Workshops.find(
-    (item) => item.id === parseInt(workshopId)
+const workshop = workData.Current.Workshops.find(
+    (item) => item.id.toString() === workshopId
+  ) || workData.Previous.Workshops.find(
+    (item) => item.id.toString() === workshopId
   );
+
+  if (!workshop) {
+    return <div className="text-center mt-20">Workshop not found</div>;
+  }
+ 
 
   if (!workshop) {
     return <div className="text-center mt-20">Workshop not found</div>;

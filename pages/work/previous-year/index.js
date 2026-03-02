@@ -9,14 +9,14 @@ import Layout from "../../../Components/UI/Layout";
 export default function PreviousYearWork() {
   const [events, setEvents] = useState([]);
   const [workshops, setWorkshops] = useState([]);
-  const [guestLectures, setGuestLectures] = useState([]); // NEW
+  const [guestLectures, setGuestLectures] = useState([]); 
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     setTimeout(() => {
       setEvents(ourWorkData.Previous.Events);
       setWorkshops(ourWorkData.Previous.Workshops);
-      setGuestLectures(ourWorkData.Previous.GuestLectures); // NEW
+      setGuestLectures(ourWorkData.Previous.GuestLectures); 
       setIsLoading(false);
     }, 500);
   }, []);
@@ -25,7 +25,7 @@ export default function PreviousYearWork() {
     <Layout>
       <div className="relative min-h-screen text-white pt-32  md:pt-36 lg:pt-40 p-4">
         
-        {/* Background Overlay and image */}
+        
         <div className="fixed inset-0 bg-black/30 pointer-events-none z-[-1]"></div>
 
         <img
@@ -35,15 +35,15 @@ export default function PreviousYearWork() {
         />
 
         <div className="container mx-auto text-center">
-          {/* Main Page Title */}
-          <h1 className="text-4xl sm:text-8xl font-batman tracking-normal uppercase mb-4 md:mb-8 text-[#5b8ef3] drop-shadow-[0_0_15px_rgba(91,142,243,0.5)]">
+          
+          <h1 className="text-3xl sm:text-7xl font-batman tracking-normal uppercase mb-4 md:mb-8 text-white drop-shadow-[0_0_15px_rgba(91,142,243,0.5)]">
             Our Work
           </h1>
 
-          {/* SECTION 1: PREVIOUS YEAR EVENTS */}
+         
           <div className="min-h-[85vh] flex flex-col items-center justify-start mb-20">
             <div className="inline-block mb-10 md:mb-20">
-              <h2 className="sm:text-5xl text-2xl font-chakraBold text-[#5b8ef3] capitalize tracking-normal px-4 drop-shadow-[0_0_10px_rgba(91,142,243,0.5)]">
+              <h2 className="sm:text-4xl text-1xl font-chakraBold text-white capitalize tracking-normal px-4 drop-shadow-[0_0_10px_rgba(91,142,243,0.5)]">
                 Previous Year Events
               </h2>
             </div>
@@ -64,10 +64,10 @@ export default function PreviousYearWork() {
             </div>
           </div>
 
-          {/* SECTION 2: PREVIOUS YEAR WORKSHOPS */}
+       
           <div className="min-h-[85vh] flex flex-col items-center justify-start mb-20">
             <div className="inline-block mb-12">
-              <h2 className="sm:text-5xl text-2xl font-chakraBold text-[#5b8ef3] capitalize tracking-normal px-4 drop-shadow-[0_0_10px_rgba(91,142,243,0.5)]">
+              <h2 className="sm:text-4xl text-1xl font-chakraBold text-white capitalize tracking-normal px-4 drop-shadow-[0_0_10px_rgba(91,142,243,0.5)]">
                 Previous Year Workshops
               </h2>
             </div>
@@ -88,10 +88,10 @@ export default function PreviousYearWork() {
             </div>
           </div>
 
-          {/* SECTION 3: PREVIOUS YEAR GUEST LECTURES */}
+         
           <div className="min-h-[85vh] flex flex-col items-center justify-start pb-20">
             <div className="inline-block mb-12">
-              <h2 className="sm:text-5xl text-2xl font-chakraBold text-[#5b8ef3] capitalize tracking-normal px-4 drop-shadow-[0_0_10px_rgba(91,142,243,0.5)]">
+              <h2 className="sm:text-4xl text-1xl font-chakraBold text-white capitalize tracking-normal px-4 drop-shadow-[0_0_10px_rgba(91,142,243,0.5)]">
                 Previous Year Guest Lectures
               </h2>
             </div>

@@ -9,6 +9,20 @@ export default function WorkDetails() {
   const router = useRouter();
   const { eventId } = useParams();
 
+  const findEvent = () => {
+    let found = workData.Current.Events.find((item) => item.id.toString() === eventId);
+    if (!found) {
+      found = workData.Previous.Events.find(
+        (item) => item.id.toString() === eventId
+      );
+    }
+    return found;
+  };
+  const event = findEvent();
+  if (!event) {
+    return <div className="text-center pt-20">Project not found</div>;
+  }
+
  
   const Event = workData.Previous.Events.find(
     (item) => item.id === parseInt(eventId)

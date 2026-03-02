@@ -1,6 +1,24 @@
 {
   "Current": {
     "Events": [
+      {
+        "id":1,
+        "name": "REKKATHON",
+        "content": "REKKATHON is a national-level offline hackathon where innovators, developers, and makers come together to build groundbreaking solutions. This isn't just another coding competition — it's a fusion of hardware and software, pushing the boundaries of what's possible.",
+        "images": [
+          "/Assets/Events/rekkathon.webp",
+          "/Assets/Events/rekkathon2.webp",
+          "/Assets/Events/rekkathon3.webp"
+          
+        ],
+        "round1": "Team Vibhav successfully organized Rekkathon, a national-level offline hackathon from February 6th to 8th at NIT Hamirpur. Our mission was not just to host a competition, but to ignite a spirit of hands-on innovation that bridges the gap between digital code and physical execution. We aimed to create a sanctuary for builders where Breaking the Boards meant shattering the limitations of traditional development.",
+        "round2":"At its core, Rekkathon was about empowering innovators from diverse technical backgrounds to step out of their comfort zones. By providing a platform for national-level talent to converge, we didn't just witness a contest  we saw a movement. Our goal was to inspire students to look beyond their screens and see themselves as architects of real-world solutions that combine software intelligence with hardware grit.",
+
+        "round3": "The hackathon also highlighted the role of cutting-edge technology and decentralization in transforming modern industries. We demonstrated how access to blockchain protocols, secure hardware interfaces, and collaborative development tools could significantly improve the security and efficiency of their solutions. Our team ensured that technical support was delivered in a relatable and accessible manner, making it easier for participants to grasp the essence of complex systems and their long-term benefits in the tech ecosystem.",
+        "round4": "Apart from the intense coding and debugging, Rekkathon fostered meaningful conversations and connections between the student community and industry experts. The positive response from the participants reinforced our belief that high-intensity, offline environments lead to significant technical growth. Many individuals expressed their willingness to explore new domains like Web3 and embedded systems, and we provided the necessary guidance on how to refine their projects and access further learning resources even after the event concluded.",
+        "round5":"This engagement was a testament to the importance of on-ground, collaborative programs in making technical education truly effective. By creating a space where burning the board was celebrated, we have laid the groundwork for a recurring legacy of innovation at NIT Hamirpur. We look forward to seeing how the projects born during these three days evolve into startups and solutions that solve real-world problems, continuing our mission to empower the next generation of builders."
+
+      }
     
     ],
     "Workshops": [
