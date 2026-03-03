@@ -100,7 +100,10 @@ export default function PixelCard({ className = "" }) {
     <div className="w-screen relative mt-11 z-10">
       <div
         ref={containerRef}
-        className={`relative w-[90%] sm:w-[60%] overflow-hidden grid place-items-center border border-[#27272a] rounded-[25px] isolate mx-auto mt-14 select-none bg-black ${className}`}
+        className={`relative w-[90%] sm:w-[60%] overflow-hidden grid place-items-center rounded-[25px] isolate mx-auto mt-14 select-none
+          bg-gradient-to-br from-[#0b1f2a]/80 via-[#08141d]/80 to-[#02070b]/80
+          backdrop-blur-xl border border-cyan-400/30 shadow-[0_0_25px_rgba(34,211,238,0.35)]
+          hover:shadow-[0_0_45px_rgba(34,211,238,0.6)] ${className}`}
       >
         <canvas
           ref={canvasRef}
