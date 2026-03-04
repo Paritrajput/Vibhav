@@ -11,9 +11,8 @@ export default function StatsSection() {
   ];
 
   return (
-    <div className="relative w-full py-20 flex justify-center bg-[url('/Assets/backgroundImg.png')] bg-cover bg-center">
-      {/* Dark overlay */}
-      <div className="absolute inset-0 bg-black/80" />
+    <div className="relative w-full py-20 flex justify-center bg-transparent">
+      
 
       {/* Stats Container */}
       <div className="relative w-[90%] sm:w-[60%] mx-auto grid grid-cols-1 sm:grid-cols-3 gap-12">

@@ -6,23 +6,64 @@ import { motion } from "framer-motion";
 
 function AboutUs() {
   return (
-    <>
-      <motion.div
-        className="mt-24 sm:mt-36"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 1 }}
-        viewport={{ once: true }}
-      >
-        <PixelCard />
-      </motion.div>
+    <section className="relative w-full min-h-screen overflow-hidden">
 
-      <StatsSection />
-    </>
+      {/* Background Image ONLY for AboutUs */}
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat z-0"
+        style={{
+          backgroundImage: "url('/Assets/AboutUs.png')", // change image path
+        }}
+      />
+
+      {/* Optional dark overlay */}
+      <div className="absolute inset-0 bg-black/60 z-0" />
+
+      {/* Content */}
+      <div className="relative z-10">
+        <motion.div
+          className="mt-24 sm:mt-36"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          viewport={{ once: true }}
+        >
+          <PixelCard />
+        </motion.div>
+
+        <StatsSection />
+      </div>
+    </section>
   );
 }
 
 export default AboutUs;
+
+// "use client";
+// import React from "react";
+// import PixelCard from "./UI/PixelCard";
+// import StatsSection from "./StatsSection";
+// import { motion } from "framer-motion";
+
+// function AboutUs() {
+//   return (
+//     <>
+//       <motion.div
+//         className="mt-24 sm:mt-36"
+//         initial={{ opacity: 0 }}
+//         whileInView={{ opacity: 1 }}
+//         transition={{ duration: 1 }}
+//         viewport={{ once: true }}
+//       >
+//         <PixelCard />
+//       </motion.div>
+
+//       <StatsSection />
+//     </>
+//   );
+// }
+
+// export default AboutUs;
 // import React from "react";
 // import PixelCard from "./UI/PixelCard";
 // import { motion } from "framer-motion";
