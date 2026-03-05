@@ -21,6 +21,20 @@ export default function FAQs() {
 
   return (
     <div className="p-4 sm:p-12 relative z-10 bg-transparent">
+      {/* Background Video */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover -z-10"
+      >
+        <source src="/Assets/FAQs.mp4" type="video/mp4" />
+      </video>
+
+      
+      <div className="absolute inset-0 bg-black/70 -z-10"></div>
+
       <motion.div 
         className="max-w-screen-lg mx-auto my-20"
         initial={{ opacity: 0, y: 50 }}

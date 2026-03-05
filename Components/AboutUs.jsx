@@ -9,15 +9,26 @@ function AboutUs() {
     <section className="relative w-full min-h-screen overflow-hidden">
 
       {/* Background Image ONLY for AboutUs */}
-      <div
+      {/* <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat z-0"
         style={{
           backgroundImage: "url('/Assets/AboutUs.png')", // change image path
         }}
-      />
+      /> */}
+      {/* Background Video */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover -z-10"
+      >
+        <source src="/Assets/AboutUs.mp4" type="video/mp4" />
+      </video>
 
-      {/* Optional dark overlay */}
-      <div className="absolute inset-0 bg-black/60 z-0" />
+
+
+      
 
       {/* Content */}
       <div className="relative z-10">

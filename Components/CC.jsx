@@ -71,12 +71,24 @@ export default function TechCitySection() {
     <section className="relative min-h-screen w-full overflow-hidden">
 
       {/* Background Image */}
-      <div
+      {/* <div
         className="absolute inset-0 -z-10 bg-cover bg-center bg-no-repeat"
         style={{
           backgroundImage: "url('/Assets/CC.png')", 
         }}
-      />
+      /> */}
+      {/* Background Video */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover -z-10"
+      >
+        <source src="/Assets/CC.mp4" type="video/mp4" />
+      </video>
+
+
 
       {/* Dark Overlay
       <div className="absolute inset-0 -z-10 bg-black/70" /> */}

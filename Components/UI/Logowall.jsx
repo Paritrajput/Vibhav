@@ -39,14 +39,8 @@ export default function True3DPhotoFrameCarousel() {
   const getCircularIndex = (i) => (i + images.length) % images.length;
 
   return (
-    <div
-      className="relative w-full h-[700px] overflow-hidden bg-cover bg-center"
-      style={{
-        backgroundImage: "url('/assets/backgroundImg.png')",
-      }}
-    >
+    <div className="relative w-full h-[700px] overflow-hidden bg-transparent">
       
-      <div className="absolute inset-0 bg-black/80" />
 
       <div className="relative z-10 w-full h-full flex items-center justify-center [perspective:2000px]">
         <AnimatePresence initial={false}>
@@ -75,7 +69,7 @@ export default function True3DPhotoFrameCarousel() {
                 }}
               >
                 <div className="relative w-[300px] h-[400px] [transform-style:preserve-3d]">
-                  
+                  {/* Back frame */}
                   <div
                     className="absolute -inset-[4px] bg-[#111111] rounded-md border border-white"
                     style={{
@@ -88,7 +82,7 @@ export default function True3DPhotoFrameCarousel() {
                     }}
                   />
 
-                 
+                  {/* Image */}
                   <img
                     src={images[imgIndex]}
                     alt=""
