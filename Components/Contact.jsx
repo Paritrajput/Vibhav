@@ -40,8 +40,6 @@ export default function Contact({}) {
         <source src="/Assets/backgroundVidCon.mp4" type="video/mp4" />
       </video>
 
-      
-
       {state.formSubmitted ? (
         <div className="relative mt-24 overflow-hidden rounded-[20px] flex pt-8 flex-col items-center justify-center w-full max-w-md mx-auto bg-black/60 backdrop-blur-md border border-emerald-500/50 p-12 shadow-[0_0_20px_rgba(16,185,129,0.3)]">
           <h2 className="text-4xl mb-12 tracking-tight font-batman font-extrabold text-center uppercase text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-400">
@@ -58,39 +56,14 @@ export default function Contact({}) {
       ) : (
         <div className="z-10 flex sm:mt-12 p-1 w-full justify-center">
           <motion.div
-            className="max-w-screen-lg relative flex flex-col mt-5 sm:mt-20 my-20 w-full lg:w-[66%] mx-auto"
+            /* REDUCED SIZE: Changed max-w-screen-lg to max-w-2xl and removed lg:w-[66%] */
+            className="max-w-2xl relative flex flex-col mt-5 sm:mt-20 my-20 w-full mx-auto"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
           >
 
-            {/* Top Corner */}
-            <svg
-              className="absolute -top-3 -left-3 w-32 h-32 z-30 pointer-events-none filter drop-shadow-[0_0_10px_rgba(168,85,247,0.8)]"
-              viewBox="0 0 100 100"
-              fill="none"
-            >
-              <path
-                d="M 100 8 L 40 8 C 22 8 8 22 8 40 L 8 100"
-                stroke="#9333ea"
-                strokeWidth="10"
-                strokeLinecap="round"
-              />
-            </svg>
-
-            {/* Bottom Corner */}
-            <svg
-              className="absolute -bottom-3 -right-3 w-32 h-32 z-30 pointer-events-none filter drop-shadow-[0_0_10px_rgba(6,182,212,0.8)]"
-              viewBox="0 0 100 100"
-              fill="none"
-            >
-              <path
-                d="M 0 92 L 60 92 C 78 92 92 78 92 60 L 92 0"
-                stroke="#06b6d4"
-                strokeWidth="10"
-                strokeLinecap="round"
-              />
-            </svg>
+            {/* BLUE AND PURPLE SVG LINES REMOVED FROM HERE */}
 
             {/* Contact Card */}
             <div className="bg-black/40 backdrop-blur-xl border border-white/10 rounded-[40px] p-8 md:p-12 shadow-[0_20px_40px_rgba(0,0,0,0.6)] w-full relative z-10 overflow-hidden">
