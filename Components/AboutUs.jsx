@@ -23,7 +23,7 @@ function AboutUs() {
         playsInline
         className="absolute inset-0 w-full h-full object-cover -z-10"
       >
-        <source src="/Assets/AboutUs.mp4" type="video/mp4" />
+        <source src="/Assets/Stats.mp4" type="video/mp4" />
       </video>
 
 
