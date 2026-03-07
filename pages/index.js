@@ -25,7 +25,7 @@ export default function Home() {
 
       <main>
         <Layout>
-          <div className="h-screen overflow-y-auto snap-y snap-mandatory scroll-smooth">
+          <div className="h-screen  snap-y snap-mandatory scroll-smooth overflow-y-auto">
 
             {/* Landing */}
             <section className="relative min-h-screen snap-start flex items-center justify-center">
@@ -73,10 +73,12 @@ export default function Home() {
             {/* Contact */}
             <section className="min-h-screen snap-start flex flex-col justify-center">
               <Contact />
+              <Footer />
             </section>
               
-  
+            
           </div>
+          
         </Layout>
       </main>
     </>

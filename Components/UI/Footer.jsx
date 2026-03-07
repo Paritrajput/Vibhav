@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 export default function Footer() {
   return (
-    <div className="relative h-24">
+    <div className=" h-24">
       <footer className="p-4 relative bottom-0 z-10  pb-4 mx-auto text-white  footer footer-center bg-base-300 text-base-content">
         <div className="">
           <p className="flex items-center justify-center text-md sm:text-2xl font-chakra">
