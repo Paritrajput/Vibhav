@@ -12,8 +12,9 @@ export default function Layout({ children }) {
       <div className="bg-black bg-opacity-70">
         {/* PAGE CONTENT */}
         {children}
-
+<div className="relative">
         <Footer />
+        </div>
         <STT />
       </div>
     </>
