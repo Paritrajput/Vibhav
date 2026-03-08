@@ -73,7 +73,7 @@ export default function Home() {
             {/* Contact */}
             <section className="min-h-screen snap-start flex flex-col justify-center">
               <Contact />
-              <Footer />
+              
             </section>
               
             
