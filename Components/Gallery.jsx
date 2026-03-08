@@ -22,7 +22,7 @@ export default function Gallery() {
     <div className="relative py-20 overflow-hidden">
 
       {/* Background Image */}
-      <video
+      {/* <video
         autoPlay
         loop
         muted
@@ -30,8 +30,13 @@ export default function Gallery() {
         className="absolute inset-0 w-full h-full object-cover -z-10"
       >
         <source src="/Assets/Gallery.mp4" type="video/mp4" />
-      </video>
+      </video> */}
 
+        <img
+        src="/Assets/Gallery.png"
+        alt="background"
+        className="absolute inset-0 w-full h-full object-cover -z-10"
+      />
       
 
       <div className="flex flex-col gap-0 overflow-hidden text-gray-200 relative z-10">

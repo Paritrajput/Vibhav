@@ -31,7 +31,7 @@ export default function Contact({}) {
     <div className="relative min-h-screen flex items-center justify-center p-4 overflow-hidden">
 
       {/* Background Video */}
-      <video
+      {/* <video
         autoPlay
         loop
         muted
@@ -39,7 +39,14 @@ export default function Contact({}) {
         className="absolute inset-0 w-full h-full object-cover -z-10"
       >
         <source src="/Assets/backgroundVidCon.mp4" type="video/mp4" />
-      </video>
+      </video> */}
+
+      {/* Background Image */}
+      <img
+        src="/Assets/Contacts.png"
+        alt="background"
+        className="absolute inset-0 w-full h-full object-cover -z-10"
+      />
 
       {state.formSubmitted ? (
         <div className="relative mt-24 overflow-hidden rounded-[20px] flex pt-8 flex-col items-center justify-center w-full max-w-md mx-auto bg-black/60 backdrop-blur-md border border-emerald-500/50 p-12 shadow-[0_0_20px_rgba(16,185,129,0.3)]">

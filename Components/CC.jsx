@@ -69,7 +69,7 @@ export default function TechCitySection() {
   return (
     <section className="relative min-h-screen w-full overflow-hidden">
       {/* Background Video (Restored as requested) */}
-      <video
+      {/* <video
         autoPlay
         loop
         muted
@@ -77,10 +77,16 @@ export default function TechCitySection() {
         className="absolute inset-0 w-full h-full object-cover -z-10"
       >
         <source src="/Assets/CC.mp4" type="video/mp4" />
-      </video>
+      </video> */}
+
+      <img
+        src="/Assets/4thImage.png"
+        alt="background"
+        className="absolute inset-0 w-full h-full object-cover -z-10"
+      />
 
       {/* Darkening Overlay for readability */}
-      <div className="absolute inset-0 bg-black/40 -z-10" />
+      <div className="absolute inset-0 bg-black/10 -z-10" />
 
       <div className="relative z-10 mx-auto py-24 px-4">
         <motion.div

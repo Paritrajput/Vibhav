@@ -20,19 +20,34 @@ export default function FAQs() {
   };
 
   return (
-    <div className="p-4 sm:p-12 relative z-10 bg-transparent">
-      {/* Background Video */}
-      <video
-        autoPlay
-        loop
-        muted
-        playsInline
-        className="absolute inset-0 w-full h-full object-cover -z-10"
-      >
-        <source src="/Assets/FAQs.mp4" type="video/mp4" />
-      </video>
+    // <div className="p-4 sm:p-12 relative z-10 bg-transparent">
+    //   {/* Background Video */}
+    //   {/* <video
+    //     autoPlay
+    //     loop
+    //     muted
+    //     playsInline
+    //     className="absolute inset-0 w-full h-full object-cover -z-10"
+    //   >
+    //     <source src="/Assets/FAQs.mp4" type="video/mp4" />
+    //   </video> */}
+    //   <img
+    //     src="/Assets/Faqss.png"
+    //     alt="background"
+    //     className="absolute inset-0 w-full h-full object-cover -z-10"
+    //   />
 
-      <div className="absolute inset-0 bg-black/60 -z-10"></div>
+    //   <div className="absolute inset-0 bg-black/60 -z-10"></div>
+
+    <div className="p-4 sm:p-12 relative z-10 bg-transparent min-h-screen">
+
+  <img
+    src="/Assets/FAQs.png"
+    alt="background"
+    className="absolute inset-0 w-full h-full object-cover object-center -z-10"
+  />
+
+  <div className="absolute inset-0 bg-black/60 -z-10"></div>
 
       <motion.div 
         /* Reduced size from max-w-screen-lg to max-w-2xl */
