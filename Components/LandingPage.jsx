@@ -10,11 +10,11 @@ export default function LandingPage() {
   return (
     <header className="relative mx-auto h-screen overflow-hidden mt-32">
 
-      {/* ===== MAIN CONTENT ===== */}
+     
       <div className="relative z-20 grid min-h-[70vh] place-items-center text-white">
         <div className="flex w-full flex-col items-center gap-6 lg:max-w-full">
 
-          {/* ===== TEAM VIBHAV TITLE ===== */}
+         
           <div className="relative flex flex-col items-center -translate-y-2">
             <h1 className="font-batman text-[3rem] sm:text-8xl tracking-widest text-white text-center">
               TEAM VIBHAV
@@ -22,7 +22,7 @@ export default function LandingPage() {
             <div className="mt-2 w-[60%] h-[2px] bg-gradient-to-r from-transparent via-white to-transparent" />
           </div>
 
-          {/* ===== TAGLINE + STARS ===== */}
+          
           <div className="flex flex-col items-center translate-y-2 mb-4">
             <div className="text-2xl font-orbitron text-white">
               <Typewriter
@@ -50,23 +50,9 @@ export default function LandingPage() {
           <SocialLinks />
         </div>
 
-        {/* <FloatingGameInfo /> */}
       </div>
 
-      {/* ===== GLASS BLUE BOTTOM SECTION (NOT DARKENED) ===== */}
-      {/* <div
-        className="
-          absolute
-          bottom-0
-          left-0
-          w-full
-          h-[42vh]
-          bg-blue-300/20
-          backdrop-blur-xl
-          border-t border-blue-400/30
-          z-30
-        "
-      /> */}
+     
     </header>
   );
 }
