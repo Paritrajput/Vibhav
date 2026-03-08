@@ -10,13 +10,11 @@ export default function Layout({ children }) {
       <Navigation />
 
       <div className="bg-black bg-opacity-70 ">
-        {/* PAGE CONTENT */}
+       
         <div  className="relative ">
         {children}
         </div>
-        {/* <div className="relative">
-        <Footer />
-        </div> */}
+       
         <STT />
       </div>
     </>

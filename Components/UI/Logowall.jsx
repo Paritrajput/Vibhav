@@ -69,7 +69,7 @@ export default function True3DPhotoFrameCarousel() {
                 }}
               >
                 <div className="relative w-[300px] h-[400px] [transform-style:preserve-3d]">
-                  {/* Back frame */}
+                 
                   <div
                     className="absolute -inset-[4px] bg-[#111111] rounded-md border border-white"
                     style={{
@@ -82,7 +82,7 @@ export default function True3DPhotoFrameCarousel() {
                     }}
                   />
 
-                  {/* Image */}
+                 
                   <img
                     src={images[imgIndex]}
                     alt=""

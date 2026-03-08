@@ -65,7 +65,7 @@ export default function Contact({}) {
         <div className="z-10 flex sm:mt-12 p-1 w-full justify-center">
           <motion.div
             /* REDUCED SIZE: Changed max-w-screen-lg to max-w-2xl and removed lg:w-[66%] */
-            className="max-w-2xl relative flex flex-col mt-5 sm:mt-20 my-20 w-full mx-auto"
+            className="max-w-4xl relative flex flex-col mt-5 sm:mt-20 my-20 w-full mx-auto"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
@@ -87,7 +87,7 @@ export default function Contact({}) {
 
                 <form
                   onSubmit={handleSecondFormSubmit}
-                  className="space-y-10 font-sans text-lg"
+                 className="space-y-10 font-sans text-lg"
                 >
                   <div className="space-y-3">
                     <label
@@ -129,7 +129,7 @@ export default function Contact({}) {
                     />
                   </div>
 
-                  <div className="sm:col-span-2 space-y-3">
+                  <div className="md:col-span-1 space-y-3">
                     <label
                       htmlFor="message"
                       className="block text-sm sm:text-base font-mono font-bold tracking-widest text-white/90 uppercase"
