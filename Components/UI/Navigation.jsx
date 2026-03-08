@@ -97,10 +97,11 @@ export default function Navigation() {
 
   const [TeamVisible, setTeamVisible] = useState(false);
   const navRef = useRef(null);
+  const scrollTimeoutRef = useRef(null);
+  const lastScrollYRef = useRef(0);
   const router = useRouter();
   const [activeRoute, setActiveRoute] = useState("");
   const [isVisible, setIsVisible] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
 
   const scrollToBottom = () => {
     
@@ -280,20 +281,58 @@ export default function Navigation() {
     setTeamVisible(false);
   };
 
-  const handleScroll = () => {
-    if (typeof window !== "undefined") {
-      if (window.scrollY > 300) {
-        if (window.scrollY > lastScrollY) {
-        
-          setIsVisible(false);
-        } else {
-          setIsVisible(true);
-        }
-      }
-      setLastScrollY(window.scrollY);
-    }
-  };
+  // const handleScroll = () => {
+  //   if (typeof window !== "undefined") {
+  //     const currentScrollY = window.scrollY;
+      
+  //     // Show navbar when near top
+  //     if (currentScrollY < 100) {
+  //       setIsVisible(true);
+  //     } else if (currentScrollY > lastScrollYRef.current) {
+  //       // Scrolling down - hide navbar
+  //       setIsVisible(false);
+  //     } else if (currentScrollY < lastScrollYRef.current) {
+  //       // Scrolling up - show navbar
+  //       setIsVisible(true);
+  //     }
+      
+  //     lastScrollYRef.current = currentScrollY;
+
+  //     // Clear existing timeout
+  //     if (scrollTimeoutRef.current) {
+  //       clearTimeout(scrollTimeoutRef.current);
+  //     }
+
+  //     // Show navbar after user stops scrolling for 800ms
+  //     scrollTimeoutRef.current = setTimeout(() => {
+  //       setIsVisible(true);
+  //     }, 800);
+  //   }
+  // };
   
+  const handleScroll = () => {
+  const currentScrollY = window.scrollY;
+
+  // Always show navbar at top
+  if (currentScrollY < 80) {
+    setIsVisible(true);
+    return;
+  }
+
+  // Hide navbar while scrolling
+  setIsVisible(false);
+
+  // Clear previous timer
+  if (scrollTimeoutRef.current) {
+    clearTimeout(scrollTimeoutRef.current);
+  }
+
+  // Show navbar when scrolling stops
+  scrollTimeoutRef.current = setTimeout(() => {
+    setIsVisible(true);
+  }, 800);
+};
+
 useEffect(() => {
   const handleRouteChange = () => {
     
@@ -316,18 +355,22 @@ useEffect(() => {
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      window.addEventListener("scroll", handleScroll);
+      window.addEventListener("scroll", handleScroll, { passive: true });
 
       return () => {
         window.removeEventListener("scroll", handleScroll);
+        if (scrollTimeoutRef.current) {
+          clearTimeout(scrollTimeoutRef.current);
+        }
       };
     }
-  }, [lastScrollY]);
+  }, []);
 
   return isMobile ? (
     <div
-      className={`navbar fixed font-chakra  z-[100] inset-0 flex flex-col w-full h-fit  top-0 z-90 transition-colors duration-300
-      ease-in-out  `}
+      className={`navbar fixed font-chakra z-[100] inset-0 flex flex-col w-full h-fit top-0 transition-all duration-300 ease-in-out transform ${
+        isVisible ? "translate-y-0 opacity-100" : "-translate-y-16 opacity-0"
+      }`}
       
     >
       <ul className={`flex items-center   bg-black/20 backdrop-blur-lg justify-between px-3 py-1 mx-auto w-full transition-all duration-500 delay-100 ease-out ${showNavbar? "bg-black/90 bg-blur-xl": "bg-black/20"}`}>

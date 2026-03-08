@@ -24,11 +24,11 @@ const Page = () => {
     <Layout>
       <div className="relative">
        
-        <div className="fixed bottom-0 top-0 left-0 w-full bg-black/50 pointer-events-none z-[-1]"></div>
+        <div className="fixed bottom-0 top-0 left-0 w-full bg-black/10 pointer-events-none z-[-1]"></div>
 
       
         <img
-          src="/Assets/projectbackground.jpg"
+          src="/Assets/Projects.png"
           alt="Background"
           className="fixed top-0 left-0 w-full h-full object-cover z-[-2]"
         />

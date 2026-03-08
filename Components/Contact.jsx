@@ -6,6 +6,7 @@ import { MdOutlineDownloadDone } from "react-icons/md";
 import { motion } from "framer-motion";
 import { FaChevronUp } from "react-icons/fa";
 
+
 export default function Contact({}) {
   const [state, setState] = useState({
     formSubmitted: false,
