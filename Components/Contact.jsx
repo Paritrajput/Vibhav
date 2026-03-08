@@ -5,6 +5,7 @@ import { useForm, ValidationError } from "@formspree/react";
 import { MdOutlineDownloadDone } from "react-icons/md";
 import { motion } from "framer-motion";
 import { FaChevronUp } from "react-icons/fa";
+import Footer from "./UI/Footer";
 
 
 export default function Contact({}) {
@@ -28,7 +29,7 @@ export default function Contact({}) {
   };
 
   return (
-    <div className="relative min-h-screen flex items-center justify-center p-4 overflow-hidden">
+    <div className="relative min-h-screen flex flex-col items-center justify-center p-4 overflow-hidden">
 
       {/* Background Video */}
       {/* <video
@@ -167,7 +168,10 @@ export default function Contact({}) {
           </motion.div>
         </div>
       )}
+     <Footer />
     </div>
+     
+  
   );
 }
 
