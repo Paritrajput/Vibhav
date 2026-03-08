@@ -43,7 +43,7 @@ export default function Contact({}) {
 
       {/* Background Image */}
       <img
-        src="/Assets/Contacts.png"
+        src="/Assets/contact.png"
         alt="background"
         className="absolute inset-0 w-full h-full object-cover -z-10"
       />

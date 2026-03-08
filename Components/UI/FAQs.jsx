@@ -42,7 +42,7 @@ export default function FAQs() {
     <div className="p-4 sm:p-12 relative z-10 bg-transparent min-h-screen">
 
   <img
-    src="/Assets/FAQs.png"
+    src="/Assets/FAQsss.png"
     alt="background"
     className="absolute inset-0 w-full h-full object-cover object-center -z-10"
   />
