@@ -41,17 +41,11 @@ export default function SocialLinks() {
     };
   }, []);
 
-  // const iconClass =
-  //   "w-5 h-5 md:w-6 md:h-6 text-cyan-300";
+  
   const iconClass =
   "w-5 h-5 md:w-6 md:h-6 text-white";
 
-  // const wrapperClass =
-  //   "flex items-center justify-center w-12 h-12 rounded-full \
-  //    bg-cyan-900/30 backdrop-blur-md border border-cyan-400/30 \
-  //    shadow-[0_0_15px_rgba(34,211,238,0.6)] \
-  //    hover:shadow-[0_0_30px_rgba(34,211,238,0.9)] \
-  //    hover:scale-110 transition-all duration-300";
+  
   const wrapperClass =
   "flex items-center justify-center w-12 h-12 rounded-full \
    bg-white/10 backdrop-blur-md border border-white/20 \

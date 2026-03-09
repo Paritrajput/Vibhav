@@ -41,7 +41,7 @@ const CurrentTeam = () => {
 
   return (
     <Layout>
-      <div className="relative text-white min-h-screen p-4 pt-16 sm:pt-24 overflow-hidden">
+      <div className="relative text-white min-h-screen p-4 pt-24 sm:pt-24 overflow-hidden">
         <div
           className="fixed top-0 left-0 w-full h-full bg-cover bg-center z-[-2] brightness-75"
           style={{ backgroundImage: "url('/Assets/projectbackground.jpg')" }}
