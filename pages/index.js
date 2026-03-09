@@ -8,10 +8,23 @@ import LandingPage from "../Components/LandingPage";
 import CC from "../Components/CC";
 import Gallery from "../Components/Gallery";
 import AboutUs from "../Components/AboutUs";
-import GameSection from "../Components/GameSection";
-import Footer from "../Components/UI/Footer";
+
+import { useEffect } from "react";
+import { scrollToSection } from "../utils/scrollToSection";
 
 export default function Home() {
+
+useEffect(() => {
+  const target = sessionStorage.getItem("scrollTarget");
+
+  if (target) {
+    setTimeout(() => {
+      scrollToSection(target);
+      sessionStorage.removeItem("scrollTarget");
+    }, 100);
+  }
+}, []);
+
   return (
     <>
       <Head>
@@ -66,15 +79,18 @@ export default function Home() {
             </section> */}
 
             {/* FAQ */}
-            <section className="min-h-screen snap-start flex flex-col justify-center">
+            <section className="min-h-screen snap-start flex flex-col justify-center" >
               <FAQs />
             </section>
 
             {/* Contact */}
-            <section className="min-h-screen snap-start flex flex-col justify-center">
+            <section className="min-h-screen snap-start flex flex-col justify-center" id="contactUS">
+              <div >
               <Contact />
+              </div>
               
             </section>
+            
               
             
           </div>

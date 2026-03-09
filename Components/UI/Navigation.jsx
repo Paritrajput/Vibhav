@@ -23,6 +23,7 @@ import {
 import { Bot } from "lucide-react";
 import { useRef } from "react";
 import { faL } from "@fortawesome/free-solid-svg-icons";
+import { scrollToSection } from "../../utils/scrollToSection";
 
 const projects = [
   {
@@ -119,6 +120,17 @@ export default function Navigation() {
       }
     }, 800);
   };
+const goToSection = (section) => {
+  document.body.classList.remove("overflow-hidden");
+  setShowNavbar(false);
+
+  if (router.pathname === "/") {
+    scrollToSection(section);
+  } else {
+    sessionStorage.setItem("scrollTarget", section);
+    router.push("/");
+  }
+};
 
   const toggleNavbar = () => {
     if (isAnimating) return;
@@ -411,8 +423,8 @@ useEffect(() => {
       </ul>
 
       <div
-        className={` transition-all duration-700 delay-100 ease-in-out fixed top-14 bg-black/85 backdrop-blur-lg w-[100%] overflow-y-auto ${showNavbar ? " h-full" : " h-0"
-          } `}
+        className={`${showNavbar ? " h-screen" : " h-0"
+          } transition-all duration-500 delay-100 ease-in-out fixed top-14 bg-black/85 backdrop-blur-lg w-[100%] overflow-y-auto  `}
       >
         <div className="flex h-screen flex-col justify-between border-e text-gray-100">
           <div className="px-4 py-6">
@@ -650,18 +662,24 @@ useEffect(() => {
                 </details>
               </li>
 
-              <li
-                onClick={() => {
-                  document.body.classList.remove("overflow-hidden");
-                  setShowNavbar(false);
-                  setTimeout(() => {
-                    scrollToBottom();
-                  }, 800);
-                }}
-              ><Link href='/' className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-100  hover:bg-gray-800/30 hover:text-cyan-400">
-                  Contact
-                </Link>
-              </li>
+{/* <li
+  onClick={() => {
+  document.body.classList.remove("overflow-hidden");
+  setShowNavbar(false);
+
+  router.push("/?scroll=contactUS");
+  }}
+>
+  <div
+    // href="/#contact"
+    className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-100 hover:bg-gray-800/30 hover:text-cyan-400"
+  >
+    Contact
+  </div>
+</li> */}
+    <li className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-100 hover:bg-gray-800/30 hover:text-cyan-400" onClick={() => goToSection("contactUS")}>
+      Contact
+    </li>
             </ul>
           </div>
         </div>
@@ -849,7 +867,7 @@ useEffect(() => {
 
         
           <Link href="/" scroll={false}>
-            <p onClick={scrollToBottom} className="menuLink">
+            <p onClick={() => goToSection("contactUS")} className="menuLink">
               <div className="group flex items-center gap-2">
                 <span className="text-3xl opacity-0 group-hover:opacity-80 pb-[1px]">{"["}</span>
                 <span className="flex items-center h-full leading-none pt-[1px] text-[1rem] transition-colors group-hover:text-purple-500">Contact</span>
